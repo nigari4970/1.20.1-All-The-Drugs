@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {"item": "all_the_drugs:opium_seed"}
+  ],
+  "result": {
+    "item": "all_the_drugs:opium_latex",
+    "count": 1
+  }
+}

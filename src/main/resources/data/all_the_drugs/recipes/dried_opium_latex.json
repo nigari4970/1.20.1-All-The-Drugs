@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "all_the_drugs:opium_latex"
+  },
+  "result": "all_the_drugs:dried_opium_latex",
+  "experience": 0.0,
+  "cookingtime": 200
+}

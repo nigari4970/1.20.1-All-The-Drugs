@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "all_the_drugs:opiumium_ingot"
+    }
+  },
+  "result": {
+    "item": "all_the_drugs:opiumium_block",
+    "count": 1
+  }
+}

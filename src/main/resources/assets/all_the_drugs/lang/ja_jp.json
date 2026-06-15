@@ -1,0 +1,12 @@
+{
+  "itemGroup.ATD" : "ALL THE DRUGs",
+
+  "item.all_the_drugs.opium_seed" : "ケシの実",
+  "item.all_the_drugs.opium_latex" : "アヘンの乳液",
+  "item.all_the_drugs.dried_opium_latex" : "乾燥したアヘンの乳液",
+  "item.all_the_drugs.opiumium_ingot" : "アヘニウムインゴット",
+
+  "block.all_the_drugs.opiumium_block" : "アヘニウムブロック",
+  "block.all_the_drugs.opium_casing" : "アヘンケーシング",
+  "block.all_the_drugs.crusher" : "粉砕機"
+}

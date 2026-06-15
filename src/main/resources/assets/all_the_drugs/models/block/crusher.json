@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up":     "all_the_drugs:block/crusher",
+    "down":   "all_the_drugs:block/opium_casing",
+    "north":  "all_the_drugs:block/opium_casing",
+    "south":  "all_the_drugs:block/opium_casing",
+    "east":   "all_the_drugs:block/opium_casing",
+    "west":   "all_the_drugs:block/opium_casing",
+    "particle": "all_the_drugs:block/opium_casing"
+  }
+}
