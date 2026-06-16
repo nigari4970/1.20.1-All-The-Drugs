@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "all_the_drugs:block/coca_log_top",
+    "side": "all_the_drugs:block/coca_log"
+  }
+}
