@@ -2,9 +2,8 @@ package com.nigari.AllTheDrugs.item;
 
 import net.minecraft.world.item.Item;
 
-public class dried_opium_latex extends Item {
-
-    public dried_opium_latex() {
+public class OpiumLatex extends Item {
+    public OpiumLatex() {
         super(new Properties()
         );
     }

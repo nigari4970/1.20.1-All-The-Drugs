@@ -2,10 +2,11 @@ package com.nigari.AllTheDrugs.block;
 
 import net.minecraft.world.level.block.Block;
 
-public class opium_casing extends Block {
-    public opium_casing() {
+public class OpiumiumBlock extends Block {
+    public OpiumiumBlock() {
         super(Properties.of()
-                .strength(5.5F, 7.0F)
+                .strength(5.0F, 6.0F)
+                .lightLevel((a) -> 6)
                 .requiresCorrectToolForDrops()
         );
     }
