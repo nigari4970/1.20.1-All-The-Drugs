@@ -16,78 +16,81 @@ import net.minecraft.world.phys.AABB;
 import java.util.List;
 
 public class OpiumMortarBlockEntity extends BlockEntity {
-    private static final int PROCESS_TIME = 20; // 変換にかかるTick（1秒）
-    private int timer = 0;
+    private ItemStack storedItem = ItemStack.EMPTY;
+    private long lastGrindTime = 0;
+    private static final int GRIND_INTERVAL = 10; // 10Tickごとに1個変換
 
     public OpiumMortarBlockEntity(BlockPos pos, BlockState state) {
         super(ATD_blockentities.OPIUM_MORTAR.get(), pos, state);
     }
 
-    // 毎Tick呼ばれる静的メソッド
-    public static void tick(Level level, BlockPos pos, BlockState state, OpiumMortarBlockEntity entity) {
-        if (level.isClientSide) return; // サーバー側のみ処理
+    public boolean insertItem(ItemStack stack) {
+        if(!stack.is(ATD_items.OPIUM_SEED.get())) return false;
 
-        // ブロックの上のアイテムエンティティを取得
-        List<ItemEntity> items = getItemsAbove(level, pos);
-        if (items.isEmpty()) {
-            entity.timer = 0; // アイテムがなければリセット
-            return;
+        if (storedItem.isEmpty()) {
+            storedItem = stack.copyWithCount(1);
+            return true;
         }
-
-        entity.timer++;
-
-        if (entity.timer >= PROCESS_TIME) {
-            entity.timer = 0;
-            convertItem(level, pos, items);
+        if (ItemStack.isSameItemSameTags(storedItem, stack) &&
+                storedItem.getCount() < storedItem.getMaxStackSize()) {
+            storedItem.grow(1);
+            return true;
         }
+        return false;
     }
 
-    // ブロックの上にあるアイテムエンティティを取得
-    private static List<ItemEntity> getItemsAbove(Level level, BlockPos pos) {
-        AABB area = new AABB(pos.above()); // 1ブロック上の範囲
-        return level.getEntitiesOfClass(ItemEntity.class, area);
+    public boolean isEmpty() {
+        return storedItem.isEmpty();
     }
 
-    // アイテムを変換する
-    private static void convertItem(Level level, BlockPos pos, List<ItemEntity> items) {
-        ItemEntity itemEntity = items.get(0);
-        ItemStack stack = itemEntity.getItem();
+    public boolean grind(Level level) {
+        if (storedItem.isEmpty()) {
 
-        // レシピの定義（例：ダイヤ→エメラルド）
-        ItemStack result = getResult(stack);
-        if (result.isEmpty()) return;
-
-        stack.shrink(1);
-        // 元のアイテムを消す
-        if(stack.isEmpty()) {
-            itemEntity.discard();
+            return false;
         }
-        // 変換後のアイテムをスポーン
-        ItemEntity newItem = new ItemEntity(level,
-                pos.getX() + 0.5,
-                pos.getY() + 1.0,
-                pos.getZ() + 0.5,
-                result.copyWithCount(1));
-        level.addFreshEntity(newItem);
+
+        long currentTime = level.getGameTime();
+        if (currentTime - lastGrindTime < GRIND_INTERVAL) {
+            return false;
+        }
+
+        ItemStack result = getGrindResult(storedItem);
+        if (result.isEmpty()) return false;
+
+        lastGrindTime = currentTime;
+        storedItem.shrink(1);
+        spawnResult(level, result);
+        setChanged();
+        return true;
     }
 
-    // 変換レシピ
-    private static ItemStack getResult(ItemStack input) {
+    private ItemStack getGrindResult(ItemStack input) {
         if (input.is(ATD_items.OPIUM_SEED.get())) {
             return new ItemStack(ATD_items.OPIUM_LATEX.get());
         }
-        return ItemStack.EMPTY; // 対応するレシピなし
+        return ItemStack.EMPTY;
     }
 
-    // NBTにデータ保存
+    private void spawnResult(Level level, ItemStack result) {
+        BlockPos pos = this.getBlockPos();
+        ItemEntity itemEntity = new ItemEntity(level,
+                pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5,
+                result.copyWithCount(1));
+        level.addFreshEntity(itemEntity);
+    }
+
     @Override
     protected void saveAdditional(CompoundTag tag) {
-        tag.putInt("timer", timer);
+        tag.put("storedItem", storedItem.save(new CompoundTag()));
     }
 
     @Override
     public void load(CompoundTag tag) {
         super.load(tag);
-        timer = tag.getInt("timer");
+        if (tag.contains("storedItem")) {
+            storedItem = ItemStack.of(tag.getCompound("storedItem"));
+        }
     }
+
+
 }
