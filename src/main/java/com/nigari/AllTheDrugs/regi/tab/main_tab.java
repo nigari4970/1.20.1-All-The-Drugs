@@ -13,6 +13,7 @@ public class main_tab {
             ATD_blocks.Block_Items.OPIUMIUM_BLOCK.get(),
             ATD_blocks.Block_Items.OPIUM_CASING.get(),
             ATD_blocks.Block_Items.CRUSHER.get(),
-            ATD_blocks.Block_Items.OPIUM_MORTAR.get()
+            ATD_blocks.Block_Items.OPIUM_MORTAR.get(),
+            ATD_blocks.Block_Items.COCA_LOG.get()
     };
 }

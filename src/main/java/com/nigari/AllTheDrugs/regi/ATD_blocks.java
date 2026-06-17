@@ -1,5 +1,6 @@
 package com.nigari.AllTheDrugs.regi;
 
+import com.nigari.AllTheDrugs.block.CocaLog;
 import com.nigari.AllTheDrugs.block.OpiumCrusher;
 import com.nigari.AllTheDrugs.block.OpiumCasing;
 import com.nigari.AllTheDrugs.block.OpiumiumBlock;
@@ -21,6 +22,8 @@ public class ATD_blocks {
         public static final RegistryObject<Block> OPIUM_CASING = BLOCKS.register("opium_casing", OpiumCasing::new);
         public static final RegistryObject<Block> CRUSHER = BLOCKS.register("crusher", OpiumCrusher::new);
         public static final RegistryObject<Block> OPIUM_MORTAR = BLOCKS.register("opium_mortar", OpiumMortarBlock::new);
+        public static final RegistryObject<Block> COCA_LOG = BLOCKS.register("coca_log", CocaLog::new);
+
     }
 
     public static class Block_Items {
@@ -30,5 +33,6 @@ public class ATD_blocks {
         public static final RegistryObject<Item> OPIUM_CASING = BLOCK_ITEMS.register("opium_casing", () -> new BlockItem(Blocks.OPIUM_CASING.get(), new Item.Properties()));
         public static final RegistryObject<Item> CRUSHER = BLOCK_ITEMS.register("crusher", () -> new BlockItem(Blocks.CRUSHER.get(), new Item.Properties()));
         public static final RegistryObject<Item> OPIUM_MORTAR = BLOCK_ITEMS.register("opium_mortar",() -> new BlockItem(Blocks.OPIUM_MORTAR.get(),new Item.Properties()));
+        public static final RegistryObject<Item> COCA_LOG = BLOCK_ITEMS.register("coca_log", () -> new BlockItem(Blocks.COCA_LOG.get(), new Item.Properties()));
     }
 }
