@@ -1,7 +1,16 @@
 {
   "variants": {
-    "": {
+    "axis=x": {
+      "model": "all_the_drugs:block/coca_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
       "model": "all_the_drugs:block/coca_log"
+    },
+    "axis=z": {
+      "model": "all_the_drugs:block/coca_log_horizontal",
+      "x": 90
     }
   }
 }
