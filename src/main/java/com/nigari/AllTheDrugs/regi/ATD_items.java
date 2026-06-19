@@ -15,5 +15,6 @@ public class ATD_items {
     public static final RegistryObject<Item> OPIUMIUM_INGOT = ITEMS.register("opiumium_ingot", OpiumiumIngot::new);
     public static final RegistryObject<Item> OPIUM_LATEX = ITEMS.register("opium_latex", OpiumLatex::new);
     public static final RegistryObject<Item> DRIED_OPIUM_LATEX = ITEMS.register("dried_opium_latex", DriedOpiumLatex::new);
+    public static final RegistryObject<Item> OPIUM_POWDER = ITEMS.register("opium_powder", OpiumPowder::new);
     public static final RegistryObject<Item> PESTLE = ITEMS.register("pestle", Pestle::new);
 }

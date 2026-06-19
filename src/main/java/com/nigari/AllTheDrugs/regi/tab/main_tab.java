@@ -9,6 +9,7 @@ public class main_tab {
             ATD_items.OPIUM_SEED.get(),
             ATD_items.OPIUM_LATEX.get(),
             ATD_items.DRIED_OPIUM_LATEX.get(),
+            ATD_items.OPIUM_POWDER.get(),
             ATD_items.OPIUMIUM_INGOT.get(),
             ATD_items.PESTLE.get(),
             ATD_blocks.Block_Items.OPIUMIUM_BLOCK.get(),
