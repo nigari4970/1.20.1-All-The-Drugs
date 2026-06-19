@@ -14,10 +14,12 @@ public class Crusher extends HorizontalDirectionalBlock {
                 .requiresCorrectToolForDrops()
         );
     }
+
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
+
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         return this.defaultBlockState().setValue(FACING,
