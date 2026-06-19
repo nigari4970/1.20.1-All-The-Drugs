@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=east": {
+      "model": "all_the_drugs:block/crusher",
+      "y": 90
+    },
+    "facing=north": {
       "model": "all_the_drugs:block/crusher"
+    },
+    "facing=south": {
+      "model": "all_the_drugs:block/crusher",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "all_the_drugs:block/crusher",
+      "y": 270
     }
   }
 }

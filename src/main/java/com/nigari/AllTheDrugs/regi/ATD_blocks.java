@@ -1,7 +1,7 @@
 package com.nigari.AllTheDrugs.regi;
 
 import com.nigari.AllTheDrugs.block.CocaLog;
-import com.nigari.AllTheDrugs.block.OpiumCrusher;
+import com.nigari.AllTheDrugs.block.Crusher;
 import com.nigari.AllTheDrugs.block.OpiumCasing;
 import com.nigari.AllTheDrugs.block.OpiumiumBlock;
 import com.nigari.AllTheDrugs.block.entity.OpiumMortarBlock;
@@ -20,7 +20,7 @@ public class ATD_blocks {
 
         public static final RegistryObject<Block> OPIUMIUM_BLOCK = BLOCKS.register("opiumium_block", OpiumiumBlock::new);
         public static final RegistryObject<Block> OPIUM_CASING = BLOCKS.register("opium_casing", OpiumCasing::new);
-        public static final RegistryObject<Block> CRUSHER = BLOCKS.register("crusher", OpiumCrusher::new);
+        public static final RegistryObject<Block> CRUSHER = BLOCKS.register("crusher", Crusher::new);
         public static final RegistryObject<Block> OPIUM_MORTAR = BLOCKS.register("opium_mortar", OpiumMortarBlock::new);
         public static final RegistryObject<Block> COCA_LOG = BLOCKS.register("coca_log", CocaLog::new);
 
